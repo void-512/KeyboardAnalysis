@@ -8,7 +8,13 @@ public sealed class MainViewModel : ViewModelBase
     private readonly KeyActivityRecorder _recorder;
     private string _statusMessage = "Keyboard capture is ready to be configured.";
 
-    public MainViewModel(KeyActivityRecorder recorder) => _recorder = recorder;
+    public MainViewModel(KeyActivityRecorder recorder)
+    {
+        _recorder = recorder;
+        Dashboard = new DashboardViewModel();
+    }
+
+    public DashboardViewModel Dashboard { get; }
 
     public string StatusMessage
     {

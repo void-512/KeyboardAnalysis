@@ -1,0 +1,36 @@
+<UserControl
+    x:Class="KeyboardAnalysis.Presentation.Pages.DashboardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:KeyboardAnalysis.Presentation.Controls">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Padding="{StaticResource PageMargin}" Spacing="0" MaxWidth="1500" HorizontalAlignment="Center">
+            <StackPanel Spacing="6" Margin="0,0,0,24">
+                <TextBlock Text="Keyboard activity" Style="{StaticResource DashboardTitleTextStyle}" />
+                <TextBlock Text="A calm view of how you use your keyboard across apps and time." Style="{StaticResource DashboardSubtitleTextStyle}" />
+            </StackPanel>
+
+            <controls:FilterBar ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
+
+            <controls:DashboardCard Title="Keyboard heatmap" Subtitle="Press frequency by key for the active filters.">
+                <controls:DashboardCard.CardContent>
+                    <controls:KeyboardHeatmapControl Rows="{x:Bind ViewModel.KeyboardRows, Mode=OneWay}" />
+                </controls:DashboardCard.CardContent>
+            </controls:DashboardCard>
+
+            <Grid ColumnSpacing="20">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                <controls:StatisticsChartCard Title="Press duration distribution" Subtitle="Frequency distribution of completed key presses." Series="{x:Bind ViewModel.DurationHistogramSeries, Mode=OneWay}" XAxes="{x:Bind ViewModel.DurationHistogramXAxes, Mode=OneWay}" YAxes="{x:Bind ViewModel.DurationHistogramYAxes, Mode=OneWay}" LegendPosition="{x:Bind ViewModel.ChartLegendPosition}" TooltipPosition="{x:Bind ViewModel.ChartTooltipPosition}" />
+                <controls:StatisticsChartCard Grid.Column="1" Title="Press count over time" Subtitle="Merged counts, shown by hour." Series="{x:Bind ViewModel.PressCountSeries, Mode=OneWay}" XAxes="{x:Bind ViewModel.TrendXAxes, Mode=OneWay}" YAxes="{x:Bind ViewModel.PressCountYAxes, Mode=OneWay}" LegendPosition="{x:Bind ViewModel.ChartLegendPosition}" TooltipPosition="{x:Bind ViewModel.ChartTooltipPosition}" />
+            </Grid>
+
+            <controls:StatisticsChartCard Title="Average press duration over time" Subtitle="Average hold duration by hour." Series="{x:Bind ViewModel.AverageDurationSeries, Mode=OneWay}" XAxes="{x:Bind ViewModel.TrendXAxes, Mode=OneWay}" YAxes="{x:Bind ViewModel.AverageDurationYAxes, Mode=OneWay}" LegendPosition="{x:Bind ViewModel.ChartLegendPosition}" TooltipPosition="{x:Bind ViewModel.ChartTooltipPosition}" />
+
+            <controls:DashboardCard Title="Raw statistics" Subtitle="Press counts by key.">
+                <controls:DashboardCard.CardContent>
+                    <controls:RawDataTable Items="{x:Bind ViewModel.RawStatistics, Mode=OneWay}" />
+                </controls:DashboardCard.CardContent>
+            </controls:DashboardCard>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

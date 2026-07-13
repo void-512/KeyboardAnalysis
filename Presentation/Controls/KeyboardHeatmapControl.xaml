@@ -1,0 +1,25 @@
+<UserControl
+    x:Class="KeyboardAnalysis.Presentation.Controls.KeyboardHeatmapControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:models="using:KeyboardAnalysis.Presentation.Models">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+        <ItemsRepeater ItemsSource="{x:Bind Rows, Mode=OneWay}">
+            <ItemsRepeater.ItemTemplate>
+                <DataTemplate x:DataType="models:KeyboardRowViewModel">
+                    <ItemsRepeater ItemsSource="{x:Bind Keys}">
+                        <ItemsRepeater.Layout><StackLayout Orientation="Horizontal" Spacing="0" /></ItemsRepeater.Layout>
+                        <ItemsRepeater.ItemTemplate>
+                            <DataTemplate x:DataType="models:KeyboardKeyViewModel">
+                                <Border Style="{StaticResource KeyboardKeyBorderStyle}" Width="{x:Bind Width}" Background="{x:Bind HeatBrush}">
+                                    <ToolTipService.ToolTip><ToolTip Content="{x:Bind Tooltip}" /></ToolTipService.ToolTip>
+                                    <TextBlock Text="{x:Bind Label}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12" />
+                                </Border>
+                            </DataTemplate>
+                        </ItemsRepeater.ItemTemplate>
+                    </ItemsRepeater>
+                </DataTemplate>
+            </ItemsRepeater.ItemTemplate>
+        </ItemsRepeater>
+    </ScrollViewer>
+</UserControl>

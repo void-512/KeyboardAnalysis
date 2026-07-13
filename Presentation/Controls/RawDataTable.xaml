@@ -1,0 +1,12 @@
+<UserControl
+    x:Class="KeyboardAnalysis.Presentation.Controls.RawDataTable"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls">
+    <controls:DataGrid x:SuppressXamlTrimWarnings="True" ItemsSource="{x:Bind Items, Mode=OneWay}" AutoGenerateColumns="False" CanUserSortColumns="True" CanUserResizeColumns="True" AlternatingRowBackground="{ThemeResource SubtleFillColorSecondaryBrush}" GridLinesVisibility="None" HeadersVisibility="Column" MinHeight="260">
+        <controls:DataGrid.Columns>
+            <controls:DataGridTextColumn x:SuppressXamlTrimWarnings="True" Header="Key" Binding="{Binding Key}" Width="*" />
+            <controls:DataGridTextColumn x:SuppressXamlTrimWarnings="True" Header="Number of Presses" Binding="{Binding PressCount}" Width="*" SortDirection="Descending" />
+        </controls:DataGrid.Columns>
+    </controls:DataGrid>
+</UserControl>

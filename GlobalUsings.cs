@@ -1,6 +1,8 @@
 global using System;
 global using System.Collections.Concurrent;
 global using System.Collections.Generic;
+global using System.Collections.ObjectModel;
+global using System.Linq;
 global using System.Diagnostics;
 global using System.IO;
 global using System.Runtime.InteropServices;
@@ -8,3 +10,4 @@ global using System.Threading;
 global using System.Threading.Tasks;
 global using Microsoft.Data.Sqlite;
 global using Microsoft.UI.Xaml;
+global using Microsoft.UI.Xaml.Media;

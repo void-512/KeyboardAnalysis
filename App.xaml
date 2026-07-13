@@ -8,9 +8,41 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-                <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
-            <!-- Other app resources here -->
+            <CornerRadius x:Key="CardCornerRadius">20</CornerRadius>
+            <Thickness x:Key="PageMargin">32,24,32,48</Thickness>
+            <Style x:Key="DashboardTitleTextStyle" TargetType="TextBlock" BasedOn="{StaticResource TitleTextBlockStyle}">
+                <Setter Property="FontSize" Value="32" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+            </Style>
+            <Style x:Key="DashboardSubtitleTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BodyTextBlockStyle}">
+                <Setter Property="Foreground" Value="{ThemeResource TextFillColorSecondaryBrush}" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+            <Style x:Key="CardBorderStyle" TargetType="Border">
+                <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
+                <Setter Property="CornerRadius" Value="{StaticResource CardCornerRadius}" />
+                <Setter Property="Padding" Value="24" />
+                <Setter Property="Margin" Value="0,0,0,20" />
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+            <Style x:Key="FilterComboBoxStyle" TargetType="ComboBox">
+                <Setter Property="MinWidth" Value="150" />
+                <Setter Property="Margin" Value="0,4,12,4" />
+            </Style>
+            <Style x:Key="ResetButtonStyle" TargetType="Button" BasedOn="{StaticResource AccentButtonStyle}">
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="Padding" Value="16,8" />
+            </Style>
+            <Style x:Key="KeyboardKeyBorderStyle" TargetType="Border">
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Height" Value="42" />
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="Padding" Value="8,0" />
+                <Setter Property="Transitions">
+                    <Setter.Value><TransitionCollection><EntranceThemeTransition /></TransitionCollection></Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
