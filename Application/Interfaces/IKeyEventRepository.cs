@@ -6,5 +6,5 @@ namespace KeyboardAnalysis.Application.Interfaces;
 public interface IKeyEventRepository
 {
     Task InitializeAsync(CancellationToken cancellationToken = default);
-    Task AddAsync(KeyEvent keyEvent, CancellationToken cancellationToken = default);
+    Task AddRangeAsync(IReadOnlyCollection<KeyEvent> keyEvents, CancellationToken cancellationToken = default);
 }

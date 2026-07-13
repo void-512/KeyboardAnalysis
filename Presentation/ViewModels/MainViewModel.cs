@@ -19,4 +19,6 @@ public sealed class MainViewModel : ViewModelBase
             OnPropertyChanged();
         }
     }
+
+    public void SetCaptureStatus(string message) => StatusMessage = message;
 }

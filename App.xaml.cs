@@ -20,13 +20,25 @@ public partial class App : Microsoft.UI.Xaml.Application
         InitializeComponent();
     }
 
-    protected override void OnLaunched(LaunchActivatedEventArgs args)
+    protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
         IKeyEventRepository repository = new SqliteKeyEventRepository();
         IKeyboardCaptureService keyboardCapture = new WindowsKeyboardCaptureService();
         var recorder = new KeyActivityRecorder(keyboardCapture, repository);
 
-        _window = new MainWindow(new MainViewModel(recorder));
+        var viewModel = new MainViewModel(recorder);
+        _window = new MainWindow(viewModel);
+        _window.Closed += async (_, _) => await recorder.StopAsync();
         _window.Activate();
+
+        try
+        {
+            await recorder.StartAsync();
+            viewModel.SetCaptureStatus("Keyboard capture is active. Events save after 20 seconds of inactivity.");
+        }
+        catch (Exception)
+        {
+            viewModel.SetCaptureStatus("Keyboard capture could not be started.");
+        }
     }
 }
