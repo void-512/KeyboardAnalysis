@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "KeyboardAnalysis (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "KeyboardAnalysis (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

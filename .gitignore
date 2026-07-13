@@ -1,0 +1,151 @@
+# =========================
+# Visual Studio
+# =========================
+
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+
+# =========================
+# Build output
+# =========================
+
+[Bb]in/
+[Oo]bj/
+
+# Build logs
+*.log
+
+# Test results
+TestResults/
+*.trx
+
+
+# =========================
+# .NET / NuGet
+# =========================
+
+# NuGet packages
+*.nupkg
+*.snupkg
+
+# NuGet cache
+.nuget/
+
+# Generated NuGet files
+packages/
+project.lock.json
+project.assets.json
+
+
+# =========================
+# WinUI 3 / Windows App SDK
+# =========================
+
+# Generated MSIX packages
+*.msix
+*.msixbundle
+*.appx
+*.appxbundle
+
+# Packaging output
+AppPackages/
+BundleArtifacts/
+
+# Generated signing files
+*.pfx
+*.cer
+
+
+# =========================
+# Debug / Release
+# =========================
+
+Debug/
+Release/
+x64/
+x86/
+ARM/
+ARM64/
+
+# Rider / JetBrains
+.idea/
+
+
+# =========================
+# Windows
+# =========================
+
+# Windows thumbnail cache
+Thumbs.db
+ehthumbs.db
+
+# Windows explorer files
+Desktop.ini
+
+# Recycle bin
+$RECYCLE.BIN/
+
+
+# =========================
+# User-specific files
+# =========================
+
+*.rsuser
+*.userprefs
+
+
+# =========================
+# Temporary files
+# =========================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+
+
+# =========================
+# Generated documentation
+# =========================
+
+*.xml
+
+
+# =========================
+# Local configuration
+# =========================
+
+# Keep templates, ignore actual secrets
+appsettings.Development.json
+*.local.json
+
+
+# =========================
+# Database files
+# =========================
+
+# SQLite databases (usually local data)
+*.db
+*.sqlite
+*.sqlite3
+
+# But keep migration files if using EF Core:
+# !Migrations/
+
+
+# =========================
+# Crash dumps
+# =========================
+
+*.dmp
